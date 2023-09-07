@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.PracticeAndroid" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.PracticeAndroid" parent="android:Theme.Material.Light.NoActionBar">
+<!--        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4</item>-->
+<!--            <TextView>-->
+<!--                android:text="@string/headline_medium"-->
+<!--                android:textAppearance="@style/TextAppearance.Material3.Headline3"-->
+<!--            </TextView>-->
+    </style>
+
 </resources>
