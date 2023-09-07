@@ -2,8 +2,11 @@
 
 package com.example.practiceandroid
 
+import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import kotlinx.coroutines.launch
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -33,12 +36,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.practiceandroid.ui.theme.PracticeAndroidTheme
+
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,9 +55,13 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyAppContent(){
+    val context = LocalContext.current
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -92,17 +101,19 @@ fun MyAppContent(){
                 )
             },
         )
-//        Button(onClick = {
-//            val intent = Intent(Intent.ACTION_VIEW)
-//            intent.data= Uri.parse("https://youtube.com");
-//            if (intent.resolveActivity(LocalContext.current.packageManager)!=null){
-//                LocalContext.current.startActivity(intent)
-//            }
-//        },
-//            modifier = Modifier.padding(all = 10.dp)) {
-//            Text(text = "Sign In")
+
+        Button(
+            onClick = {
+                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://www.webfuse.in")))},
+            modifier = Modifier.padding(all = 10.dp)
+        )
+        {
+            Text(text = "Sign In ඞ", style = MaterialTheme.typography.bodyMedium.copy(color = Color.Yellow))
         }
     }
+}
+
+
 
 
 
